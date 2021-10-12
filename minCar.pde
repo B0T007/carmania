@@ -1,7 +1,7 @@
 class MinCar {
 
   boolean onStar;
-  float points;
+  int points;
   float hp;
   float fuel;
 
