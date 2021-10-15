@@ -21,7 +21,7 @@ class Dash {
     // Background for dashboard
     textSize(50);
     fill(0, 25, 100);
-    text("Fuel", 20, 80);
+    text("fuel", 20, 80);
     //  text(minCar1.points, 80, 120);
 
     textSize(20);
