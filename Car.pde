@@ -11,15 +11,18 @@ class Car {
     xpos = tempXpos;
     ypos = tempYpos;
     xspeed = tempXspeed;
-    
-    c = color(random(0,255), random(0,255),random(0,255));
+
+    c = color(random(0, 255), random(0, 255), random(0, 255));
+
+    minCar_image = loadImage("minCar.png");
   }
 
   void render() {
     stroke(0);
     fill(c);
     rectMode(CENTER);
-    rect(xpos, ypos, 20, 10);
+    image(minCar_image, xpos, ypos);
+    minCar_image.resize(40,20);
   }
 
   void update() {

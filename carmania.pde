@@ -21,7 +21,7 @@ PImage hp_image;
 PImage jerry_image;
 PImage maln_image;
 PImage explosion_image;
-
+PImage minCar_image;
 
 
 void setup() {
@@ -30,7 +30,7 @@ void setup() {
 
   minCloud1 = new Cloud(color(255, 255, 255), random(0, width), random(0, height));
 
-  minCar1 = new MinCar(color(255, 150, 150), 10, 200, 0, 0);
+  minCar1 = new MinCar(color(255, 150, 150), 1200, 200, 0, 0);
 
   Fuel1 = new Fuel(color(255, 0, 0), 123, 354);
 

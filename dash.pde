@@ -4,7 +4,7 @@ class Dash {
   float xpos;
   float ypos;
   int hp;
-  float points; 
+  float points;
 
   Dash(float tempXpos, float tempYpos) {
     xpos = tempXpos;
@@ -30,8 +30,12 @@ class Dash {
 
     textSize(50);
     fill(255, 0, 0);
-    text(minCar1.points, 20, 150);
-   
+    text(minCar1.points, 175, 150);
+
+    textSize(50);
+    fill(255, 0, 0);
+    text("points", 20, 150);
+
     //ritar ut hpn
     for (int i = 0; i < hp; i++) {
       imageMode(CENTER);

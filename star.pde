@@ -17,7 +17,7 @@ class star {
  
     imageMode(CENTER);
     image(star_image,xpos,ypos);
-  
+
   }
 
 void update() {
