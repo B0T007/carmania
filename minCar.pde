@@ -22,6 +22,9 @@ class MinCar {
     fuel = 500;
     hp = 5;
     points = 0;
+
+    ferrari_image = loadImage("ferrari3.png");
+    ferrari_image.resize(100, 0);
   }
 
   void render() {
@@ -29,9 +32,11 @@ class MinCar {
     stroke(0);
     fill(c);
     rectMode(CENTER);
-    rect(xpos, ypos, 20, 10);
 
     text(fuel, 50, 50);
+
+    imageMode(CENTER);
+    image(ferrari_image, xpos, ypos);
   }
 
   void update() {
@@ -100,13 +105,25 @@ class MinCar {
 
       fuel += 60;
     }
+    //for (int i = 0; i < star1.length; i++) {
+    //  onStar = false;
 
-    if (abs(star1.xpos - xpos) < 70 && abs(star1.ypos - ypos) < 70 && !onStar) {
-      onStar = true;
-      //fixa så man får poäng för varje gång man kör in i star
-      points += 1 ;
-    } else if (abs(star1.xpos - xpos) >= 70 || abs(star1.ypos - ypos) >= 70) {
-      onStar = false;
+    //  if (abs(star1[i].xpos - xpos) < 20 && abs(star1[i].ypos - ypos) < 20) {
+    //    onStar = true;
+    //    points =+ 1;
+    //  }
+    //}
+
+    for (int i = 0; i < star1.length; i++) {
+      if (abs(star1[i].xpos - xpos) < 70 && abs(star1[i].ypos - ypos) < 70 && !onStar) {
+        onStar = true;
+        //fixa så man får poäng för varje gång man kör in i star
+        points += 1 ;
+        star1[i].xpos = random(70, width);
+        star1[i].ypos = random(70, height);
+      } else if (abs(star1[i].xpos - xpos) >= 70 || abs(star1[i].ypos - ypos) >= 70) {
+        onStar = false;
+      }
     }
   }
 }

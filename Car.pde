@@ -22,7 +22,7 @@ class Car {
     fill(c);
     rectMode(CENTER);
     image(minCar_image, xpos, ypos);
-    minCar_image.resize(40,20);
+    minCar_image.resize(40, 20);
   }
 
   void update() {

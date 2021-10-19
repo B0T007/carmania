@@ -6,7 +6,7 @@ MinCar minCar1;
 
 Hp[] hps = new Hp[5];
 
-star star1;
+star[] star1 = new star[5];
 
 Dash dash1;
 
@@ -22,7 +22,7 @@ PImage jerry_image;
 PImage maln_image;
 PImage explosion_image;
 PImage minCar_image;
-
+PImage ferrari_image;
 
 void setup() {
   background(0);
@@ -36,19 +36,15 @@ void setup() {
 
   explosion_image = loadImage("explosion.png");
 
-  star1 = new star(random(10,width),random(10,height));
+  for (int i = 0; i < star1.length; i++) {
+    star1[i] = new star(random(70, width), random(70, height));
+  }
 
-  dash1 = new Dash(25,70);
+  dash1 = new Dash(25, 70);
 
   for (int i = 0; i < Cars.length; i++) {
     Cars[i] = new Car(random(0, width), random(0, height), random(1, 4));
   }
-
-
-
-
-
-
 
 
 
@@ -59,7 +55,7 @@ void setup() {
 void draw() {
 
   if (state == 1) {
-    background(0, 255, 255);
+    background(0);
 
     for (int i = 0; i < Cars.length; i++) {
       Cars[i].update();
@@ -69,8 +65,10 @@ void draw() {
     for (int i = 0; i < hps.length; i++) {
     }
 
-   star1.render();
-   star1.update();
+    for (int i = 0; i < star1.length; i++) {
+      star1[i].update();
+      star1[i].render();
+    }
 
     minCar1.update();
     minCar1.render();
@@ -96,24 +94,24 @@ void draw() {
       state = 1;
     }
   }
-}
 
-void keyPressed() {
-  if (key == 'w') {
-    minCar1.yspeed = minCar1.yspeed - 1;
-  }
-  if (key == 's') {
-    minCar1.yspeed = minCar1.yspeed + 1;
-  }
-  if (key == 'a') {
-    minCar1.xspeed = minCar1.xspeed - 1;
-  }
-  if (key == 'd') {
-    minCar1.xspeed = minCar1.xspeed + 1;
-  }
+  if (keyPressed) {
+    if (key == 'w') {
+      minCar1.yspeed = minCar1.yspeed - 0.5;
+    }
+    if (key == 's') {
+      minCar1.yspeed = minCar1.yspeed + 0.5;
+    }
+    if (key == 'a') {
+      minCar1.xspeed = minCar1.xspeed - 0.5;
+    }
+    if (key == 'd') {
+      minCar1.xspeed = minCar1.xspeed + 0.5;
+    }
 
-  if (key == 'e') {
-    state = 2;
-    timer = millis();
+    if (key == 'e') {
+      state = 2;
+      timer = millis();
+    }
   }
 }
