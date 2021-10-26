@@ -1,3 +1,9 @@
+import processing.sound.*;
+
+SoundFile ferraricoldstart;
+
+ferraricoldstart = new SoundFile(this,"ferraricoldstart.wav");
+
 Cloud minCloud1;
 
 Fuel Fuel1;
@@ -16,7 +22,7 @@ int timer;
 Car[] Cars = new Car[25];
 
 int state;
-PImage star_image;
+PImage star_image; //TESTING
 PImage hp_image;
 PImage jerry_image;
 PImage maln_image;

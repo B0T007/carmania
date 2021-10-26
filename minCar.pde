@@ -105,19 +105,11 @@ class MinCar {
 
       fuel += 60;
     }
-    //for (int i = 0; i < star1.length; i++) {
-    //  onStar = false;
 
-    //  if (abs(star1[i].xpos - xpos) < 20 && abs(star1[i].ypos - ypos) < 20) {
-    //    onStar = true;
-    //    points =+ 1;
-    //  }
-    //}
 
     for (int i = 0; i < star1.length; i++) {
       if (abs(star1[i].xpos - xpos) < 70 && abs(star1[i].ypos - ypos) < 70 && !onStar) {
         onStar = true;
-        //fixa så man får poäng för varje gång man kör in i star
         points += 1 ;
         star1[i].xpos = random(70, width);
         star1[i].ypos = random(70, height);
