@@ -1,8 +1,7 @@
 import processing.sound.*;
 
-Soundfile ferrariColdStart;
+SoundFile ferrariColdStart;
 
-ferrariColdStart = new SoundFile("ferraricoldstart.wav");
 
 Cloud minCloud1;
 
@@ -17,7 +16,8 @@ star[] star1 = new star[5];
 Dash dash1;
 
 int timer;
-
+float timerSec = 0;
+boolean start = false;
 
 Car[] Cars = new Car[25];
 
@@ -30,9 +30,11 @@ PImage explosion_image;
 PImage minCar_image;
 PImage ferrari_image;
 
- void setup() {
+void setup() {
   background(0);
   size(1200, 1000, P2D);
+
+  ferrariColdStart = new SoundFile(this, "ferraricoldstart.wav");
 
   minCloud1 = new Cloud(color(255, 255, 255), random(0, width), random(0, height));
 
@@ -53,12 +55,35 @@ PImage ferrari_image;
   }
 
 
-
-  state = 1;
+  state = 5;
 }
 
 
 void draw() {
+
+  if ( state == 5) {
+    background(255, 0, 0);
+    textSize(100);
+    fill(0);
+    text("press e to start", 600, 600);
+
+    if (keyPressed) {
+      if (key == 'e') {
+        timerSec = 0;
+        ferrariColdStart.play();
+        start = true;
+      }
+    }
+
+    timerSec = timerSec + 1/frameRate;
+
+    if (timerSec > 5 && start == true) {
+      state = 1;
+    }
+  }
+
+
+
 
   if (state == 1) {
     background(0);
@@ -97,7 +122,7 @@ void draw() {
     minCloud1.render();
 
     if (millis() - timer > 2000) {
-      state = 1;
+      //state = 1;
     }
   }
 
@@ -115,9 +140,15 @@ void draw() {
       minCar1.xspeed = minCar1.xspeed + 0.5;
     }
 
-    if (key == 'e') {
-      state = 2;
-      timer = millis();
-    }
+
+    //if (key == 'e') {
+    //  state = 1;
+    //   background (255,255,255);
+
+
+    //  ferrariColdStart.play();
+    //   timer=2;
+
+    //}
   }
 }

@@ -16,6 +16,19 @@ class Dash {
   }
 
   void render() {
+     
+    textSize(60);
+    fill(0,0,255);
+    text("jajajja",600,600);
+    
+    
+    
+    
+    
+    
+    
+    
+// hp text, fuel text, och en bra massa mer text ()()()()()()()()()
 
     rect(120, 120, 220, 220, 28);
     // Background for dashboard
